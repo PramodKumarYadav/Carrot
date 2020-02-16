@@ -1,6 +1,6 @@
 # 🥕🐇>_ : Carrot 
 
-🥕🐇>_ : This is a template framework in Powershell that you can use as a reference, if you have a need to test RabbitMQ.
+This is a template framework in Powershell that you can use as a reference, if you have a need to test RabbitMQ.
 Framework uses open source tools such as rabtap for tapping RabbitMQ and jq for parsing jsons. 
 
 Most general purpose functions, should be usable for your projects with minimum customization. 

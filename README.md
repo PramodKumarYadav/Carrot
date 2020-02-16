@@ -1,6 +1,6 @@
 # Carrot 
 
->_ 🥕🐇 : This is a template framework in Powershell that you can use as a reference, if you have a need to test RabbitMQ.
+🥕🐇>_ : This is a template framework in Powershell that you can use as a reference, if you have a need to test RabbitMQ.
 Framework uses open source tools such as rabtap for tapping RabbitMQ and jq for parsing jsons. 
 
 Most general purpose functions, should be usable for your projects with minimum customization. 
@@ -27,11 +27,11 @@ Todo
 
 ## If runing on docker 
 * Docker desktop installed.
-* clone the project.
+* Clone the project.
 * To specify here...
-* PS D:\Circle> docker image build -t circle:v1 .
-* PS D:\Circle> docker container run -it circle:v1
-* PS /circle> ./main.ps1
+* PS D:\Carrot> docker image build -t carrot:v1 .
+* PS D:\Carrot> docker container run -it carrot:v1
+* PS /carrot> ./main.ps1
 
 # Execute 
 Write down steps to execute here.

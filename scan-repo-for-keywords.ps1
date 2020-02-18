@@ -5,3 +5,8 @@ foreach($word in $excludeList.applications){
     Write-Host "`t$word"
     Get-ChildItem -Path $PSScriptRoot -Recurse -Exclude 'system-apps.json' | Select-String -Pattern $word
 }
+
+foreach($word in $excludeList.others){
+    Write-Host "`t$word"
+    Get-ChildItem -Path $PSScriptRoot -Recurse -Exclude 'system-apps.json' | Select-String -Pattern $word
+}

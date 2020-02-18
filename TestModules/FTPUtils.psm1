@@ -23,7 +23,7 @@ function Export-LocalToFTPDirectory {
         Write-Output "put '$localPath'" > batchFile
     }
 
-    sftp -b batchFile test@ftp:$ftpDirName # does not need a pwd because ftp deployment is configured to include test key
+    sftp -b batchFile test@ftp:$ftpDirName # does not need a password because ftp deployment is configured to include test key
     rm batchFile
 }
 

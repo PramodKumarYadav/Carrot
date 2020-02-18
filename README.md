@@ -41,8 +41,7 @@ Write down steps to execute here.
 * - [ ] to do.
 * - [x] done.
 
-# Naming conventions
-* [Refer this link for different case styles](https://medium.com/better-programming/string-case-styles-camel-pascal-snake-and-kebab-case-981407998841)
+# [Naming conventions](https://medium.com/better-programming/string-case-styles-camel-pascal-snake-and-kebab-case-981407998841)
 * [Naming directories and files]
     * Directory names: PascalCase
     * File names: kebab-case

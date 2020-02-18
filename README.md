@@ -41,6 +41,19 @@ Write down steps to execute here.
 * - [ ] to do.
 * - [x] done.
 
+# Naming conventions
+* [Refer this link for different case styles](https://medium.com/better-programming/string-case-styles-camel-pascal-snake-and-kebab-case-981407998841)
+* [Naming directories and files]
+    * Directory names: PascalCase
+    * File names: kebab-case
+* [Naming functions, parameters and variables](https://powershell.org/forums/topic/parameter-and-variable-naming-camelcase/)
+    * Function Names: PascalCase
+    * Parameters: PascalCase
+    * Variables: camelCase
+    * Constants: SNAKE_CASE
+    * Database fields: snake_case
+    * urls: kebab-case
+
 # Reference
 * [Readme markdown-cheatsheet](https://github.com/tchapi/markdown-cheatsheet/blob/master/README.md "Readme markdown-cheatsheet")
 * [emoji-cheat-sheet](https://www.webfx.com/tools/emoji-cheat-sheet/ "emoji-cheat-sheet")

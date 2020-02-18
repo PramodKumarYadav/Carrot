@@ -50,7 +50,7 @@ Todo
 * Clone the project.
 * To specify here...
 * PS D:\Carrot> docker image build -t carrot:v1 .
-* PS D:\Carrot> docker container run -it carrot:v1
+* PS D:\Carrot> docker container run --name rabtap -it carrot:v1 
 * PS /carrot> ./main.ps1
 
 # Execute 

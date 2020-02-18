@@ -26,7 +26,23 @@ Specify the project structure here:
 Todo
 
 ## If installing local
-* Windows OS with Powershell 5 or more installed on it.
+* Windows OS.
+* Softwares:
+    * docker desktop
+    * Powershell 5 or more
+    * git
+* Project:
+    * This project cloned directly in your C: drive
+* Docker logged in 
+    * If in future, you put any images on your localhost.
+* Extensions in Visual studio Code:
+    * Powershell
+    * Docker extension.
+    * Remote containers
+    * kubernetes 
+* Extensions in Visual studio Code (container):
+    * Powershell
+        * In settings- > Extensions ->remote -containers -> add ms-vscode.powershell (To have powershell in container)
 * More steps to add here. 
 
 ## If runing on docker 

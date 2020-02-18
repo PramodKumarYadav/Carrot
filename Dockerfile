@@ -44,14 +44,14 @@ RUN cp /bin/stat /usr/bin/stat
 # install sql pwsh module
 RUN pwsh -c 'Set-PSRepository -Name PSGallery -InstallationPolicy Trusted; Install-Module -Name SqlServer -AllowClobber'
 
+# define work directory
+WORKDIR /TestFramework/
+
 # run-entrypoint
 # ENTRYPOINT [ "pwsh", "-File", "./main.ps1" ]
 
 # debug-entrypoint
 ENTRYPOINT [ "pwsh", "-File", "./debug.ps1"]
-
-# define work directory
-WORKDIR /TestFramework/
 
 # copy content of test scripts (making this as last step, since this will change often)
 # ADD ./.vscode-for-container ./.vscode

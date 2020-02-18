@@ -6,6 +6,10 @@ Framework uses open source tools such as rabtap for tapping RabbitMQ and jq for 
 Most general purpose functions, should be usable for your projects with minimum customization. 
 Special thanks to https://github.com/jandelgado/rabtap for making this project possible with his awesome tool rabtap!
 
+# Credits
+This framework is heavily based on the open source work of jandelgado and his tool rabtap. My compliments and thanks to him for building this tool!
+You can learn more about the tool @ Github location: https://github.com/jandelgado/rabtap
+
 # Scope
 Todo
 

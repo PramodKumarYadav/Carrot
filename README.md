@@ -46,7 +46,7 @@ Write down steps to execute here.
 * - [x] done.
 
 # [Naming conventions](https://medium.com/better-programming/string-case-styles-camel-pascal-snake-and-kebab-case-981407998841)
-* [Naming directories and files]
+* Naming directories and files
     * Directory names: PascalCase
     * File names: kebab-case
 * [Naming functions, parameters and variables](https://powershell.org/forums/topic/parameter-and-variable-naming-camelcase/)

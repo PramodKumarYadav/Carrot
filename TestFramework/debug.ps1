@@ -5,7 +5,7 @@ Start-Transcript -Path "/TestFramework/TestResults/debug.log"
 . '/TestFramework/TestModules/import-modules.ps1'
 Import-Modules -Path '/TestFramework'
 
-Write-Host "In the debug container"
+Write-Host "In the debug entrypoint"
 # Write-Host "Starting test plan '$env:TEST_PLAN' - buildId '$env:BUILD_ID'"
 
 Write-Host "Setup complete. Now going to sleep forever..."

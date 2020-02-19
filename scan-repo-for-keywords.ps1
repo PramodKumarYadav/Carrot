@@ -1,4 +1,5 @@
-$excludeList = Get-Content "C:\Carrot\Ignore\system-apps.json" | ConvertFrom-Json 
+Write-Host "root dir: $PSScriptRoot"
+$excludeList = Get-Content "$PSScriptRoot\Ignore\system-apps.json" | ConvertFrom-Json 
 
 Write-Host "`ncheck app:"
 foreach($word in $excludeList.applications){

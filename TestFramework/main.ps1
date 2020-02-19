@@ -13,8 +13,8 @@ switch ($env:TEST_PLAN) {
     
     "even-odd"       { Test-ScenariosEvenOdd -Application 'EvenOdd'; break; }
 
-    "positive-int"   { Test-ScenariosPositiveInt -Application 'Int/Positive'; break; }
-    "negative-int"   { Test-ScenariosPositiveInt -Application 'Int/Negative'; break; }
+    "positive-integer"   { Test-ScenariosPositiveInt -Application 'Integer/Positive'; break; }
+    "negative-integer"   { Test-ScenariosPositiveInt -Application 'Integer/Negative'; break; }
 
     "debug"          { Test-ScenariosEvenOdd -Application 'EvenOdd'; break; }
 

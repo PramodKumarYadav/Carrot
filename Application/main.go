@@ -7,6 +7,8 @@ import (
 	"github.com/streadway/amqp"
 )
 
+// to the reader: these are my first Go lines - be clement 🐣
+
 func main() {
 
 	connection := cmd.GetRabbitConnection()
@@ -19,8 +21,9 @@ func main() {
 
 	go cmd.Receive(channel, "input")
 
-	sendFirstNNumbers(999, channel, queue.Name)
+	sendFirstNNumbers(99, channel, queue.Name)
 
+	// TODO use a channel and die properly not after 10 seconds
 	time.Sleep(10 * time.Second)
 	fmt.Println("main function completed")
 }

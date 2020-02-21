@@ -295,3 +295,6 @@ debug/*
 
 # Ignore this file (I use it to scan and ensure that no client information is published accidentally)
 ignore/*
+
+#target test app ouput file
+Application/evenoddapp

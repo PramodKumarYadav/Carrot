@@ -21,7 +21,7 @@ func main() {
 
 	go cmd.Receive(channel, "input")
 
-	sendFirstNNumbers(99, channel, queue.Name)
+	sendFirstNNumbers(9001, channel, queue.Name)
 
 	// TODO use a channel and die properly not after 10 seconds
 	time.Sleep(10 * time.Second)

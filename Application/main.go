@@ -2,15 +2,12 @@ package main
 
 import (
 	"fmt"
-	"qwertoyo/carrot/evenoddapp/rabbit"
-	"qwertoyo/carrot/evenoddapp/businesslogic"
+	"strconv"
 	"time"
 	"github.com/streadway/amqp"
+	"github.com/PramodKumarYadav/Carrot/evenoddapp/businesslogic"
+	"github.com/PramodKumarYadav/Carrot/evenoddapp/rabbit"
 )
-
-// to the reader: these are my first Go lines - be clement 🐣
-const exchangeName = "🐧exchange"
-const queueName = "🐧queue"
 
 func main() {
 
@@ -23,10 +20,10 @@ func main() {
 	createTopology(channel)
 
 	// start receiving
-	go rabbit.Receive(channel, queueName, businesslogic.Process)
+	go rabbit.Receive(channel, businesslogic.QueueName, businesslogic.Process)
 
 	// publish
-	sendFirstNNumbers(9001, channel, exchangeName)
+	sendFirstNNumbers(9001, channel, businesslogic.ExchangeName)
 
 	// TODO die properly not after 10 seconds
 	time.Sleep(10 * time.Second)
@@ -35,20 +32,25 @@ func main() {
 
 func sendFirstNNumbers(n int, channel *amqp.Channel, exchangeName string) {
 	for i := 0; i < n; i++ {
-		go rabbit.Publish(i, channel, exchangeName)
+		body := []byte(strconv.Itoa(i))
+		go rabbit.Publish(body, channel, exchangeName)
 	}
 }
 
-func createTopology(channel *amqp.Channel){
+func createTopology(channel *amqp.Channel) {
 	// topology is inspired by what MassTransit does
 
+	// tried nesting functions but it ends up unreadable - TODO refactor
 	rabbit.BindQueueToExchange( // bind '🐧queue' queue to '🐧queue' exchange
-		rabbit.CreateQueue(queueName, channel), // create '🐧queue' queue
-	 	exchangeName, 
+		rabbit.CreateQueue(businesslogic.QueueName, channel), // create '🐧queue' queue
+		businesslogic.ExchangeName,
 		rabbit.BindExchangeToExchange( // bind '🐧queue' exchange to '🐧exchange' exchange
-			exchangeName, 
-			queueName, 	
+			businesslogic.ExchangeName,
+			businesslogic.QueueName,
 			rabbit.CreateExchange( // create '🐧queue' exchange
-				queueName, // same name as queue
-				rabbit.CreateExchange(exchangeName, channel)))) // create '🐧exchange' exchange
+				businesslogic.QueueName, // same name as queue
+				rabbit.CreateExchange(businesslogic.ExchangeName, channel)))) // create '🐧exchange' exchange
+
+	rabbit.CreateExchange(businesslogic.EvensExchangeName, channel)
+	rabbit.CreateExchange(businesslogic.OddsExchangeName, channel)
 }

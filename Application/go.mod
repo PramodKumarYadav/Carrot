@@ -1,4 +1,4 @@
-module qwertoyo/carrot/evenoddapp
+module github.com/PramodKumarYadav/Carrot/evenoddapp
 
 go 1.13
 

@@ -2,12 +2,10 @@ package rabbit
 
 import (
 	"log"
-	"strconv"
 	"github.com/streadway/amqp"
 )
 
-func Publish(number int, channel *amqp.Channel, exchangeName string) {
-	body := strconv.Itoa(number)
+func Publish(body []byte, channel *amqp.Channel, exchangeName string) {
 	err := channel.Publish(
 		exchangeName, // exchange
 		"",           // routing key
@@ -15,15 +13,15 @@ func Publish(number int, channel *amqp.Channel, exchangeName string) {
 		false,        // immediate
 		amqp.Publishing{
 			ContentType: "text/plain",
-			Body:        []byte(body),
+			Body:        body,
 		})
-	log.Printf(" [x] Published %s", body)
+	log.Printf(" [🥕] Published %s to %s", body, exchangeName)
 	failOnError(err, "Failed to publish a message")
 }
 
-type process func([]byte) int
+type processBody func([]byte, *amqp.Channel) 
 
-func Receive(channel *amqp.Channel, queueName string, processFunc process) {
+func Receive(channel *amqp.Channel, queueName string, processFunc processBody) {
 	msgs, err := channel.Consume(
 		queueName, // queue
 		"",        // consumer
@@ -42,7 +40,7 @@ func Receive(channel *amqp.Channel, queueName string, processFunc process) {
 	go func() {
 		for d := range msgs {
 			counter++
-			processFunc(d.Body)
+			processFunc(d.Body, channel)
 		}
 	}()
 

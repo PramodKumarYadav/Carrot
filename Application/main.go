@@ -1,15 +1,28 @@
 package main
 
 import (
+	"os"
 	"fmt"
 	"strconv"
 	"time"
+
 	"github.com/streadway/amqp"
 	"github.com/PramodKumarYadav/Carrot/evenoddapp/businesslogic"
 	"github.com/PramodKumarYadav/Carrot/evenoddapp/rabbit"
 )
 
+// args: [autosendnum=100]
 func main() {
+	autoSendMax := 100
+	argsWithoutProg := os.Args[1:]
+	if(len(argsWithoutProg) > 0){
+		paramValue, err := strconv.Atoi(argsWithoutProg[0])
+		if (err != nil){
+			panic("args: [autosendnum=100]")
+		}
+		autoSendMax = paramValue
+	}
+
 
 	connection := rabbit.GetRabbitConnection()
 	defer connection.Close()
@@ -23,10 +36,10 @@ func main() {
 	go rabbit.Receive(channel, businesslogic.QueueName, businesslogic.Process)
 
 	// publish
-	sendFirstNNumbers(9001, channel, businesslogic.ExchangeName)
+	sendFirstNNumbers(autoSendMax, channel, businesslogic.ExchangeName)
 
-	// TODO die properly not after 10 seconds
-	time.Sleep(10 * time.Second)
+	// TODO die properly not after 5 seconds
+	time.Sleep(5 * time.Second)
 	fmt.Println("main function completed")
 }
 

@@ -1,11 +1,12 @@
 package businesslogic
 
 import (
+	"encoding/json"
 	"log"
 	"strconv"
-	"github.com/streadway/amqp"
+
 	"github.com/PramodKumarYadav/Carrot/evenoddapp/rabbit"
-	"encoding/json"
+	"github.com/streadway/amqp"
 )
 
 const OddsExchangeName = "¹³⁵⁷⁹"
@@ -13,22 +14,23 @@ const EvensExchangeName = "⁰²⁴⁶⁸"
 const ExchangeName = "🐧exchange"
 const QueueName = "🐧queue"
 
-type NumberOddity struct {
-    Number int
-    IsEven bool
+var exchangeMap = map[bool]string{
+	true:  EvensExchangeName,
+	false: OddsExchangeName,
 }
 
-func (data *NumberOddity) ToJson() []byte {
+type NumberParity struct {
+	Number int
+	IsEven bool
+}
+
+func (data *NumberParity) ToJson() []byte {
 	bytes, err := json.Marshal(data)
 	failOnError(err, "eror in json marshalling")
 	return bytes
 }
 
-func (data *NumberOddity) GetExchange() string{
-	exchangeMap := map[bool]string{
-		true: EvensExchangeName,
-		false: OddsExchangeName,
-	}
+func (data *NumberParity) GetExchange() string {
 	return exchangeMap[data.IsEven]
 }
 
@@ -39,10 +41,9 @@ func Process(body []byte, channel *amqp.Channel) {
 	isEven := number%2 == 0
 	getEvenStr := func() string { if isEven { return "even" } else { return "odd" }	}
 
-	log.Printf("%d - it's %s", number, getEvenStr())
+	log.Printf("[🖥] received %d - it's %s", number, getEvenStr())
 
-	result :=  &NumberOddity{ number, isEven }
-
+	result := &NumberParity{number, isEven}
 	rabbit.Publish(result.ToJson(), channel, result.GetExchange())
 }
 

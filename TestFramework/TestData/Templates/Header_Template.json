@@ -1,0 +1,13 @@
+{
+    "Headers": {
+      "Content-Type": "my-app-name/what-ever-is-applicable-here+json"
+    },
+    "what-ever-you-get-from-tapping-exchange": "",
+    "replace-with-actual-header-file-here": "",
+    "Timestamp": "0001-01-01T00:00:00Z",
+    "DeliveryTag": "valueDeliveryTag",
+    "Redelivered": false,
+    "Exchange": "valueExchange",
+    "XRabtapReceivedTimestamp": "valueXRabtapReceivedTimestamp",
+    "Body": ""
+  }

@@ -1,0 +1,23 @@
+[{
+    "A" : "actual-2-A",
+    "B" : "🍍",
+    "C" : "456789", 
+    "ciao": {
+        "one": "1-actual",
+        "two": 2,
+        "four": 4
+    },
+    "conversationId" : "2"
+},{
+    "A" : 42.32,
+    "B" : "🥭",
+    "conversationId" : "1"
+},{
+    "A" : 9001,
+    "B" : "🦆",
+    "conversationId" : "4"
+},{
+    "conversationId": "5"
+},{
+    "conversationId": "missing-cid"
+}]

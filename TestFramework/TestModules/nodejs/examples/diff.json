@@ -1,0 +1,44 @@
+  {
+    "missing-conversationId": [
+      "3"
+    ],
+    "unexpected-conversationId": [
+      "4",
+      "missing-cid"
+    ],
+    "diffs": [
+      {
+        "conversationId": "2",
+        "diffs": [
+          {
+            "added": {
+              "C": "456789"
+            }
+          },
+          {
+            "deleted": {
+              "D": null
+            }
+          },
+          {
+            "updated": {
+              "A": "actual-2-A",
+              "ciao": {
+                "one": "1-actual"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "conversationId": "5",
+        "diffs": [
+          {
+            "deleted": {
+              "foo": null
+            }
+          }
+        ]
+      }
+    ]
+  }

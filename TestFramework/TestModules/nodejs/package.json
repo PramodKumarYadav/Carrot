@@ -1,0 +1,13 @@
+{
+  "name": "json-diff",
+  "version": "1.0.0",
+  "description": "diffs json objects",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Antonio",
+  "license": "WTFPLv2",
+  "dependencies": {
+    "deep-object-diff": "^1.1.0"
+  }
+}

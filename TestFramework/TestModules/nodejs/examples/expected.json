@@ -1,0 +1,22 @@
+[{
+    "conversationId" : "1",
+    "A" : 42.32,
+    "B" : "🥭"
+},{
+    "conversationId" : "2",
+    "A" : "expected-2-A",
+    "B" : "🍍",
+    "D" : "456789", 
+    "ciao": {
+        "one": "1-expected",
+        "two": 2,
+        "four": 4
+    }
+},{
+    "conversationId" : "3",
+    "A" : 111,
+    "B" : "🎅"
+},{
+    "conversationId": "5",
+    "foo": "bar"
+}]

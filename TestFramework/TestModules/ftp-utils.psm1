@@ -5,10 +5,10 @@ function Disable-HostKeyCheck{
 function Export-LocalToFTPDirectory {
     param(
     [Parameter(Mandatory = $true)]    
-    [String] $localPath,   # mind your CWD, or use full paths. e.g. '/test/TestData/App/FTPImport/Input/ccv' for direcotry or ending with say'.../ccv/filename.csv' for files
+    [String] $localPath,   # mind your CWD, or use full paths. e.g. '/test/TestData/App/FTPImport/Input/ftpDir' for direcotry or ending with say'.../ftpDir/filename.csv' for files
     
     [Parameter(Mandatory = $true)]    
-    [String] $ftpDirName       # the name of the ftp directory to upload to. e.g. 'ccv'. ccv is created by ftp container according to SFTP_USERS env var
+    [String] $ftpDirName       # the name of the ftp directory to upload to. e.g. 'ftpDir'. ftpDir is created by ftp container according to SFTP_USERS env var
     )
 
     if (!(Test-Path /root/.ssh/known_hosts)){
@@ -17,7 +17,7 @@ function Export-LocalToFTPDirectory {
 
     # If Directory, use localPath without quotes (otherwise it doesnt work)
     if((Get-Item $localPath) -is [System.IO.DirectoryInfo]){
-        $localPath = "$localPath/*"  # e.g. '/test/TestData/App/FTPImport/Input/ccv/*'
+        $localPath = "$localPath/*"  # e.g. '/test/TestData/App/FTPImport/Input/ftpDir/*'
         Write-Output "put $localPath" > batchFile
     }else {
         Write-Output "put '$localPath'" > batchFile
@@ -30,7 +30,7 @@ function Export-LocalToFTPDirectory {
 function Remove-FTPDirectory{
     param(
     [Parameter(Mandatory = $true)]    
-    [String] $ftpDirName       # the name of the ftp directory to delete its contents. e.g. 'ccv'. 
+    [String] $ftpDirName       # the name of the ftp directory to delete its contents. e.g. 'ftpDir'. 
     )
 
     if (!(Test-Path /root/.ssh/known_hosts)){

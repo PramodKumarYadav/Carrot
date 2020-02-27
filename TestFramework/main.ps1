@@ -30,4 +30,4 @@ $outDirectory = Get-EnvVariable -name "outDir" -target 'Process'
 Set-RunStatus -pathParentTS "$outDirectory"
 
 # Publish out folder into to azure blob storage
-Publish-OutFolder
+Publish-TestResults

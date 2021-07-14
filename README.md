@@ -1,4 +1,7 @@
 # 🥕🐇>_ : Carrot 
+![GitHub contributors](https://img.shields.io/github/contributors/pramodkumaryadav/carrot)
+![GitHub last commit](https://img.shields.io/github/last-commit/pramodkumaryadav/carrot)
+
 
 This is a template framework in Powershell that you can use as a reference, if you have a need to test RabbitMQ.
 Framework uses open source tools such as rabtap for tapping RabbitMQ and jq for parsing jsons. 

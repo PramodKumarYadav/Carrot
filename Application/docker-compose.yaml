@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  rabbit:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  worker:
+    build: 
+      context: ./
+      dockerfile: ./Dockerfile
+    image: evenoddapp:latest
